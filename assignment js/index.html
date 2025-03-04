@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Table</title>
+    <style>
+        body{
+            text-align: center;
+        
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 8px 12px;
+            background: rgb(21, 164, 164);
+            border: 2px solid rgb(10, 10, 18);
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ASSIGNMENT JAVASCRIPT</h1>
+    <table>
+        
+        <tr>
+            <td>Change Heading Text</td>
+            <td><button onclick="changeHeading()">Click</button></td>
+        
+           
+            <td>Change Background Color</td>
+            <td><button ondblclick="changeBgColor()">Double Click</button></td>
+        
+        
+            <td>Show/Hide Text</td>
+            <td><button onclick="toggleText()">Click</button></td>
+        </tr>
+        
+        <tr>
+    
+            <td>Change Text Color</td>
+            <td><button onmouseover="changeTextColor()">Hover</button></td>
+        
+    
+            <td>Reset Text Color</td>
+            <td><button onmouseout="resetTextColor()">Hover Out</button></td>
+        
+    
+            <td>Increase Font Size</td>
+            <td><button onclick="increaseSize()">Click</button></td>
+        </tr>
+       
+        <tr>
+            <td>Decrease Font Size</td>
+            <td><button onclick="decreaseSize()">Click</button></td>
+        
+        
+            <td>Image Border</td>
+            <td><button onclick="toggleBorder()">Click</button></td>
+        
+        
+            <td>Change Image</td>
+            <td><button onclick="changeImage()">Click</button></td>
+        </tr>
+       <tr>
+            <td>Show/Hide Image</td>
+            <td><button onclick="toggleImage()">Click</button></td>
+        
+    
+            <td>Log Key Press</td>
+            <td><button onkeydown="logKey(event)">Press Key</button></td>
+        
+    
+            <td>Add New Button</td>
+            <td><button onclick="addNewButton()">Click</button></td>
+        </tr>
+    </table>
+
+    <h2 id="heading">This is the heading</h2>
+    <p id="text">This is a paragraph.</p>
+    <img id="image" src="imgs/HD-wallpaper-beautiful-scenery-nature-pier-in-dark-background-dark.jpg" alt="Sample Image">
+
+    <script>
+        function changeHeading() {
+            document.getElementById('heading').innerText = "Heading Changed!";
+        }
+
+        function changeBgColor() {
+            document.body.style.backgroundColor = "lightblue";
+        }
+
+        function toggleText() {
+            let para = document.getElementById('text');
+            para.classList.toggle('hidden');
+        }
+
+        function changeTextColor() {
+            document.getElementById('text').style.color = "red";
+        }
+
+        function resetTextColor() {
+            document.getElementById('text').style.color = "black";
+        }
+
+        function increaseSize() {
+            document.getElementById('text').style.fontSize = "24px";
+        }
+
+        function decreaseSize() {
+            document.getElementById('text').style.fontSize = "14px";
+        }
+
+        function toggleBorder() {
+            let img = document.getElementById('image');
+            img.style.border = img.style.border ? "" : "5px solid red";
+        }
+
+        function changeImage() {
+            document.getElementById('image').src = "imgs/beautiful-morning-views.jpg";
+        }
+
+        function toggleImage() {
+            let img = document.getElementById('image');
+            img.style.display = img.style.display === "none" ? "block" : "none";
+        }
+
+        function logKey(event) {
+            alert("Key Pressed: " + event.key);
+        }
+
+        function addNewButton() {
+            let btn = document.createElement('button');
+            btn.innerText = "New Button";
+            btn.onclick = () => alert("New Button Clicked!");
+            document.body.appendChild(btn);
+        }
+    </script>
+
+</body>
+</html>
